@@ -3,11 +3,14 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+    return arr.inject(0) { |sum, x| sum + x }
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  return 0 if arr.empty?
+  return arr[0] if arr.length == 1
+  arr.sort!
+  arr[-1] + arr[-2]
 end
 
 def sum_to_n? arr, n
