@@ -14,7 +14,7 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  # cahnge
 end
 
 # Part 2
