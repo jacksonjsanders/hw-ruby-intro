@@ -4,19 +4,19 @@
 
 #1.1
 def sum arr
-    return arr.inject(0) { |sum, x| sum + x }
+    return arr.inject(0) { |sum, x| sum + x }                                   # Uses inject method to loop through arr, adding to sum as it goes along (Base case 0)
 end
 
 #1.2
 def max_2_sum arr
   return 0 if arr.empty?
-  return arr[0] if arr.length == 1
+  return arr[0] if arr.length == 1                                              # If arr is only 1 element, returns value of that element
   arr.sort!
-  arr[-1] + arr[-2]
+  arr[-1] + arr[-2]                                                             # Sorts array and sums the final two elements
 end
 
 #1.3
-def sum_to_n? arr, n
+def sum_to_n? arr, n                                                            # Uses double pointer method to see if two elements in arr sum to n
   arr.sort!
   l = 0
   r = arr.length-1
@@ -41,7 +41,7 @@ end
 
 def starts_with_consonant? s
   s = s.downcase
-  if s.empty? || s[0] =~ /[^a-z]/ || s[0] =~ /[aeiou]/
+  if s.empty? || s[0] =~ /[^a-z]/ || s[0] =~ /[aeiou]/                          # Uses Regex to return false if first character isn't a letter or is a vowel
     return false
   else 
     return true
@@ -50,10 +50,9 @@ end
 
 
 def binary_multiple_of_4? s
-  if s.to_i % 4 == 0 
-    return true
-  else 
+  if s !~ /^[01]+$/                                                             # Makes sure input is binary number
     return false
+  else s.to_i % 4 == 0
   end
 end
 
@@ -67,6 +66,10 @@ class BookInStock                                                               
     raise ArgumentError if isbn.empty? || price <= 0
     @isbn = isbn
     @price = price
+  end
+
+  def price_as_string
+    format("$%.2f", @price)                                                     # Displays price in "$00.00" format (two digits after decimal with a leading $)
   end
 
 end
