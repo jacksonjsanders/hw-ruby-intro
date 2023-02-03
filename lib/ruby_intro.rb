@@ -60,6 +60,13 @@ end
 
 # Part 3
 
-class BookInStock
-# YOUR CODE HERE
+class BookInStock                                                               # This class defines a BookInStock object, which has two attributes: isbn and price.
+  attr_accessor :isbn, :price
+  
+  def initialize(isbn, price)                                                   # The initialize method sets the isbn and price attributes when a new object is created and raises an ArgumentError if either isbn or price is empty or zero.
+    raise ArgumentError if isbn.empty? || price <= 0
+    @isbn = isbn
+    @price = price
+  end
+
 end
